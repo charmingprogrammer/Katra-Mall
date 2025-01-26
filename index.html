@@ -1,18 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" 
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <title>Katra Mall : Shop your all needs</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .video-container {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: -50px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+
+    }
+
+    .title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .description {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <h1 id="title">Events By <span style="color: dodgerblue;">Katra Mall</span></h1>
-    <div class="Events_container">
-        <a href="./FPE.html" class="running">Free pizza event | Result Announced : 1Jan 2025</a>
-        <a href="#" class="notrunning">Free fire event | Coming soon</a>
-        <a href="#" class="notrunning">Free Shopping Event | Coming soon</a>
+  <div class="video-container">
+    <video id="videoPlayer" autoplay loop>
+      <source src="vid2.mp4" type="video/mp4">
+      <source src="video.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+    <div>
+      <button onclick="playVideo()">Play</button>
+      <button onclick="pauseVideo()">Pause</button>
     </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('videoPlayer');
+
+    function playVideo() {
+      video.play();
+    }
+
+    function pauseVideo() {
+      video.pause();
+    }
+  </script>
 </body>
 </html>
