@@ -3,84 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Page</title>
+  <title>Free Pizza Contest</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .video-container {
+      background-color: #ffffff;
       text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
       background: #fff;
       padding: 20px;
-      border-radius: 10px;
-      margin-top: -50px;
     }
-
-    video {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 10px;
-
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
-
-    .title {
-      font-size: 24px;
-      margin-bottom: 10px;
+    h1 {
+      color: #d35400;
+    }
+    p {
+      font-size: 18px;
       color: #333;
     }
-
-    .description {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #555;
+    .pizza-img {
+      width: 120px;
+      height: 120px;
+      margin: 10px auto;
+      animation: spin 3s linear infinite;
     }
-
-    button {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .pay-button {
+      background-color: #ff4500;
+      color: white;
+      padding: 14px 28px;
+      font-size: 20px;
       border: none;
-      border-radius: 5px;
-      font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease-in-out;
     }
-
-    button:hover {
-      background-color: #0056b3;
+    .pay-button:hover {
+      background-color: #cc3700;
+    }
+    .info-section {
+      text-align: left;
+      margin-top: 50px;
+      padding: 10px;
+      background: #ffe4b5;
+      border-radius: 10px;
+    }
+    .info-section h2 {
+      color: #d35400;
+    }
+    .info-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .info-section ul li {
+      font-size: 16px;
+      padding: 5px 0;
     }
   </style>
 </head>
 <body>
-  <div class="video-container">
-    <video id="videoPlayer" autoplay loop>
-      <source src="vid2.mp4" type="video/mp4">
-      <source src="video.webm" type="video/webm">
-      Your browser does not support the video tag.
-    </video>
-    <div>
-      <button onclick="playVideo()">Play</button>
-      <button onclick="pauseVideo()">Pause</button>
+  <div class="container">
+    <img class="pizza-img" src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Pizza">
+    <h1>Win a Free Pizza!</h1>
+    <p>Enter our contest for a chance to win a delicious free pizza! Entry fee: ₹9</p>
+    <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KnwUJzGzwB4klG" async> </script> </form>
+    <div class="info-section">
+      <h2>How It Works</h2>
+      <ul>
+        <li>Pay just ₹9 to enter the contest.</li>
+        <li>One lucky winner will be selected daily.</li>
+        <li>Winner will be announced via email & on our website.</li>
+        <li>Get a free pizza delivered to your doorstep!</li>
+      </ul>
     </div>
   </div>
-
-  <script>
-    const video = document.getElementById('videoPlayer');
-
-    function playVideo() {
-      video.play();
-    }
-
-    function pauseVideo() {
-      video.pause();
-    }
-  </script>
 </body>
 </html>
